@@ -55,4 +55,17 @@ public class Sphere extends Shape3D {
     protected double calculateVolume() {
         return (4.0 / 3.0) * Math.PI * radius * radius * radius;
     }
+
+    /**
+     * Returns a sphere-specific string representation including radius,
+     * surface area and volume (two decimal places).
+     *
+     * @return formatted string describing this sphere
+     */
+    @Override
+    public String toString() {
+        return String.format(
+                "Sphere {name='%s', color='%s', radius=%.2f}%n  - Surface Area: %.2f square units%n  - Volume: %.2f cubic units",
+                getName(), getColor(), radius, getSurfaceArea(), getVolume());
+    }
 }

@@ -40,4 +40,11 @@ public class Cube extends Shape3D {
     protected double calculateVolume() {
         return side * side * side;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Cube {name='%s', color='%s', side=%.2f}%n  - Surface Area: %.2f square units%n  - Volume: %.2f cubic units",
+                getName(), getColor(), side, getSurfaceArea(), getVolume());
+    }
 }

@@ -47,4 +47,11 @@ public class Cylinder extends Shape3D {
         // volume = pi*r^2*h
         return Math.PI * radius * radius * height;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Cylinder {name='%s', color='%s', radius=%.2f, height=%.2f}%n  - Surface Area: %.2f square units%n  - Volume: %.2f cubic units",
+                getName(), getColor(), radius, height, getSurfaceArea(), getVolume());
+    }
 }

@@ -59,4 +59,11 @@ public class RectangularPrism extends Shape3D {
     protected double calculateVolume() {
         return width * height * depth;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "RectangularPrism {name='%s', color='%s', w=%.2f, h=%.2f, d=%.2f}%n  - Surface Area: %.2f square units%n  - Volume: %.2f cubic units",
+                getName(), getColor(), width, height, depth, getSurfaceArea(), getVolume());
+    }
 }
