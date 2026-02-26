@@ -40,8 +40,8 @@ public class Octahedron extends Shape3D {
      * @throws IllegalArgumentException if edge <= 0
      */
     public void setEdge(double edge) {
-        if (edge <= 0) {
-            throw new IllegalArgumentException("edge must be > 0");
+        if (!Double.isFinite(edge) || edge <= 0) {
+            throw new IllegalArgumentException("edge must be > 0 and finite");
         }
         this.edge = edge;
     }
@@ -71,4 +71,3 @@ public class Octahedron extends Shape3D {
                 getName(), getColor(), edge, getSurfaceArea(), getVolume());
     }
 }
-

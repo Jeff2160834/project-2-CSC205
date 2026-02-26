@@ -19,8 +19,8 @@ public class Cylinder extends Shape3D {
     }
 
     public void setRadius(double radius) {
-        if (radius <= 0) {
-            throw new IllegalArgumentException("radius must be > 0");
+        if (!Double.isFinite(radius) || radius <= 0) {
+            throw new IllegalArgumentException("radius must be > 0 and finite");
         }
         this.radius = radius;
     }
@@ -30,8 +30,8 @@ public class Cylinder extends Shape3D {
     }
 
     public void setHeight(double height) {
-        if (height <= 0) {
-            throw new IllegalArgumentException("height must be > 0");
+        if (!Double.isFinite(height) || height <= 0) {
+            throw new IllegalArgumentException("height must be > 0 and finite");
         }
         this.height = height;
     }

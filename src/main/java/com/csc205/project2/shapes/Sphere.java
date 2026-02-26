@@ -4,7 +4,7 @@ package com.csc205.project2.shapes;
  * A sphere defined by a radius.
  *
  * <p>Provides implementations of volume and surface area calculations for a
- * sphere. Radius must be positive.
+ * sphere. Radius must be positive and finite.
  */
 public class Sphere extends Shape3D {
 
@@ -16,7 +16,7 @@ public class Sphere extends Shape3D {
      *
      * @param name   shape name
      * @param color  shape color
-     * @param radius radius in units; must be > 0
+     * @param radius radius in units; must be > 0 and finite
      * @throws IllegalArgumentException if radius &lt;= 0 or name/color is null
      */
     public Sphere(String name, String color, double radius) {
@@ -40,8 +40,8 @@ public class Sphere extends Shape3D {
      * @throws IllegalArgumentException if radius &lt;= 0
      */
     public void setRadius(double radius) {
-        if (radius <= 0) {
-            throw new IllegalArgumentException("radius must be > 0");
+        if (!Double.isFinite(radius) || radius <= 0) {
+            throw new IllegalArgumentException("radius must be > 0 and finite");
         }
         this.radius = radius;
     }

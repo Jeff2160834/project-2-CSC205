@@ -13,7 +13,7 @@ public class Cube extends Shape3D {
      *
      * @param name  shape name
      * @param color shape color
-     * @param side  side length in units; must be > 0
+     * @param side  side length in units; must be > 0 and finite
      */
     public Cube(String name, String color, double side) {
         super(name, color);
@@ -25,8 +25,8 @@ public class Cube extends Shape3D {
     }
 
     public void setSide(double side) {
-        if (side <= 0) {
-            throw new IllegalArgumentException("side must be > 0");
+        if (!Double.isFinite(side) || side <= 0) {
+            throw new IllegalArgumentException("side must be > 0 and finite");
         }
         this.side = side;
     }

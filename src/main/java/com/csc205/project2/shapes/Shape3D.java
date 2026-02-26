@@ -1,13 +1,5 @@
 package com.csc205.project2.shapes;
-/*
- * AI GENERATION DOCUMENTATION
- * ===========================
- * AI Tool Used: [CoPilot GPT-5 Mini intelliJ plugin]
- * Generation Date: [2026-18-02]
- *
- * Original Prompt:
- * "[Create a Java abstract class called Shape3D that implements a ThreeDimensionalShape interface. The class should have private fields name (String) and color (String) with public getters and setters. Add a constructor that accepts both fields. Provide concrete implementations of getVolume() and getSurfaceArea() that simply call their respective abstract methods. Override toString() to return a formatted string showing the shape's name, color, volume, and surface area. Include full JavaDoc documentation on all methods and the class itself.]"
- */
+
 
 /**
  * Abstract base class for three-dimensional shapes.

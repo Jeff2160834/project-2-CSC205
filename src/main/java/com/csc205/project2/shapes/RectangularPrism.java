@@ -21,8 +21,8 @@ public class RectangularPrism extends Shape3D {
     }
 
     public void setWidth(double width) {
-        if (width <= 0) {
-            throw new IllegalArgumentException("width must be > 0");
+        if (!Double.isFinite(width) || width <= 0) {
+            throw new IllegalArgumentException("width must be > 0 and finite");
         }
         this.width = width;
     }
@@ -32,8 +32,8 @@ public class RectangularPrism extends Shape3D {
     }
 
     public void setHeight(double height) {
-        if (height <= 0) {
-            throw new IllegalArgumentException("height must be > 0");
+        if (!Double.isFinite(height) || height <= 0) {
+            throw new IllegalArgumentException("height must be > 0 and finite");
         }
         this.height = height;
     }
@@ -43,8 +43,8 @@ public class RectangularPrism extends Shape3D {
     }
 
     public void setDepth(double depth) {
-        if (depth <= 0) {
-            throw new IllegalArgumentException("depth must be > 0");
+        if (!Double.isFinite(depth) || depth <= 0) {
+            throw new IllegalArgumentException("depth must be > 0 and finite");
         }
         this.depth = depth;
     }
