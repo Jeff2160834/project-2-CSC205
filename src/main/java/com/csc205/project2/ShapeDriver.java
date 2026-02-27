@@ -117,6 +117,9 @@ public class ShapeDriver {
         addShape(new Cylinder        ("Zeta Cyl",      "Violet",   3.00,  8.0));
         addShape(new RectangularPrism("Eta Prism",     "Ivory",    8.00, 5.0, 4.0));
         addShape(new RectangularPrism("Theta Prism",   "Slate",    6.00, 6.0, 6.0));
+        // Add demo Octahedron instances so they appear in analysis/timing
+        addShape(new Octahedron("Iota Oct", "Copper", 4.0));
+        addShape(new Octahedron("Kappa Oct", "Azure", 2.5));
     }
 
     /**
@@ -215,7 +218,7 @@ public class ShapeDriver {
         System.out.println(BOLD + "  PER-TYPE CONSTRAINT WINNERS" + RESET);
         printDivider();
 
-        String[] types = { "Sphere", "Cube", "Cylinder", "RectangularPrism" };
+        String[] types = { "Sphere", "Cube", "Cylinder", "RectangularPrism", "Octahedron" };
 
         for (String type : types) {
             // Collect all shapes of this type into a temporary sub-array
@@ -391,12 +394,12 @@ public class ShapeDriver {
                     + "\n  │  1 → Add a Sphere                        │"
                     + "\n  │  2 → Add a Cube                          │"
                     + "\n  │  3 → Add a Cylinder                      │"
-                    + "\n  │  4 → Add a Rectangular Prism             │"
-                    + "\n  │  5 → View current shape array            │"
-                    + "\n  │  6 → Re-run comparative analysis         │"
-                    + "\n  │  7 → Re-run performance timing           │"
-                    + "\n  │  8 → Exit interactive mode               │"
-                    + "\n  └──────────────────────────────────────────┘"
+                    + "\n  │  4 → Add an Octahedron                   │"
+                    + "\n  │  5 → Add a Rectangular Prism             │"
+                    + "\n  │  6 → View current shape array            │"
+                    + "\n  │  7 → Re-run comparative analysis         │"
+                    + "\n  │  8 → Re-run performance timing           │"
+                    + "\n  │  9 → Exit interactive mode               │"
                     + RESET
             );
             System.out.print(YELLOW + "  Your choice: " + RESET);
@@ -408,13 +411,14 @@ public class ShapeDriver {
                 case "1" -> { addShape(buildSphere());           confirmAdded(); }
                 case "2" -> { addShape(buildCube());             confirmAdded(); }
                 case "3" -> { addShape(buildCylinder());         confirmAdded(); }
-                case "4" -> { addShape(buildRectangularPrism()); confirmAdded(); }
-                case "5" -> displayShapeArray();
-                case "6" -> runComparativeAnalysis();
-                case "7" -> runPerformanceTiming();
-                case "8" -> active = false;
+                case "4" -> { addShape(buildOctahedron());      confirmAdded(); }
+                case "5" -> { addShape(buildRectangularPrism()); confirmAdded(); }
+                case "6" -> displayShapeArray();
+                case "7" -> runComparativeAnalysis();
+                case "8" -> runPerformanceTiming();
+                case "9" -> active = false;
                 default  -> System.out.println(RED
-                        + "  ✘  Please enter a number from 1 to 8.\n" + RESET);
+                        + "  ✘  Please enter a number from 1 to 9.\n" + RESET);
             }
         }
     }
@@ -463,16 +467,25 @@ public class ShapeDriver {
         return new Cylinder(name, color, radius, height);
     }
 
-    /** Prompts for RectangularPrism parameters and returns the new prism. */
-    private static RectangularPrism buildRectangularPrism() {
-        printBuilderHeader("Rectangular Prism", "length, width, height");
-        String name   = promptString("  Name");
-        String color  = promptString("  Color");
-        double length = promptPositiveDouble("  Length");
-        double width  = promptPositiveDouble("  Width");
-        double height = promptPositiveDouble("  Height");
-        return new RectangularPrism(name, color, length, width, height);
+    /** Prompts for Octahedron parameters and returns the new Octahedron. */
+    private static Octahedron buildOctahedron() {
+        printBuilderHeader("Octahedron", "edge length");
+        String name  = promptString("  Name");
+        String color = promptString("  Color");
+        double edge  = promptPositiveDouble("  Edge Length");
+        return new Octahedron(name, color, edge);
     }
+
+     /** Prompts for RectangularPrism parameters and returns the new prism. */
+     private static RectangularPrism buildRectangularPrism() {
+         printBuilderHeader("Rectangular Prism", "length, width, height");
+         String name   = promptString("  Name");
+         String color  = promptString("  Color");
+         double length = promptPositiveDouble("  Length");
+         double width  = promptPositiveDouble("  Width");
+         double height = promptPositiveDouble("  Height");
+         return new RectangularPrism(name, color, length, width, height);
+     }
 
     // =========================================================
     //  INPUT VALIDATION HELPERS
@@ -529,6 +542,7 @@ public class ShapeDriver {
             case "Cube"             -> BLUE;
             case "Cylinder"         -> GREEN;
             case "RectangularPrism" -> YELLOW;
+            case "Octahedron"       -> RED;
             default                 -> WHITE;
         };
     }
@@ -602,3 +616,4 @@ public class ShapeDriver {
                 + RESET + "\n");
     }
 }
+
