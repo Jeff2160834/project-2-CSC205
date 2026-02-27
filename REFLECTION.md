@@ -31,6 +31,14 @@ all of the different shape classes in a single array and then loop through that 
 This project provided a great opportunity to see how inheritance and polymorphism work together in Java to create a clean and organized structure for our shape classes, and it was interesting to see how the methods from the interface were implemented in each of the shape classes.
 I was really happy with how the code generated and get to see a more robust piece of code that AI generated for me to see the behavoriors with polymorphism and inheritance. 
 
+I learned more about inheritance and polymorphism in Java through this project, gave me good insight into how to structure classes and utilize interfaces even further as I explained above. 
+
+In regards to utilizing AI for future coding projects is something I will continue practicing and using as a tool to continue learning coding and assist with the future projects in this class but
+also for my own projects and tests that I will be doing. I think it is a tool that we all need to learn with constraints and guard rails. As we should still know how to code manualy as that will allow us to fix the errors
+presented within the AI generated code and also to understand the code that we are implementing into our projects. OVerall I learned a lot about how to utilize AI for coding tasks with the good and the bad,
+this will make me more cautious as I completely broke my project at one point and had to go back and remove all the errors that was presented after running my tests and going through the error logs.
+But that was a very good experience for me! 
+
 
 
 
